@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const Decks = () => (
+const Deck = () => (
 	<View>
-		<Text>Decks</Text>
+		<Text>Deck</Text>
 	</View>
 );
 
-export default Decks;
+export default Deck;
