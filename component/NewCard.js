@@ -1,15 +1,13 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
 
 const NewCard = () => (
 	<View>
 		<View>
-			<Text>Question</Text>
-			<Text>What is the color of the sky?</Text>
+			<TextInput placeholder="Question" />
 		</View>
 		<View>
-			<Text>Answer</Text>
-			<Text>Sky Blue</Text>
+			<TextInput placeholder="Correct Answer" />
 		</View>
 	</View>
 );
