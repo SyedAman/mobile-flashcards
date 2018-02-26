@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
 
 import initialState from '../reducers/initialState';
@@ -23,12 +23,18 @@ class Home extends Component {
 
 		return (
 			<Container>
+				<Text>NashCards</Text>
+				<Text>Decks</Text>
+
 				{this.state.decks.map((deck, index) => (
-					<Button
+					<TouchableOpacity
 						onPress={() => navigation.navigate('IndividualDeckPage', { deck })}
 						title={deck.name}
 						key={index}
-					/>
+					>
+						<Text>{deck.name}</Text>
+						<Text>{`${deck.cards.length} cards`}</Text>
+					</TouchableOpacity>
 				))}
 			</Container>
 		);
