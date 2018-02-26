@@ -1,13 +1,19 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 
-const Deck = () => (
+const Deck = ({ navigation }) => (
 	<View>
 		<Text>Colors</Text>
 		<Text>5 Cards</Text>
 
-		<Button title="Add Card" />
-		<Button title="Start Quiz" />
+		<Button
+			onPress={() => navigation.navigate('NewCardPage')}
+			title="Add Card"
+		/>
+		<Button
+			onPress={() => navigation.navigate('QuizPage')}
+			title="Start Quiz"
+		/>
 	</View>
 );
 
