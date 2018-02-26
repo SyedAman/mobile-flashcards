@@ -3,12 +3,10 @@ import { View, Text, Button } from 'react-native';
 
 const Quiz = () => (
 	<View>
-		<Text>
-			<View>What is the color of the sky?</View>
+		<Text>What is the color of the sky?</Text>
 
-			<Button title="Correct" />
-			<Button title="Incorrect" />
-		</Text>
+		<Button title="Correct" />
+		<Button title="Incorrect" />
 	</View>
 );
 
