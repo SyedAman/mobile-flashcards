@@ -1,8 +1,13 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
+import styled from 'styled-components';
+
+const Container = styled.View`
+	flex: 1;
+`;
 
 const Deck = ({ navigation }) => (
-	<View>
+	<Container>
 		<Text>Colors</Text>
 		<Text>5 Cards</Text>
 
@@ -14,7 +19,7 @@ const Deck = ({ navigation }) => (
 			onPress={() => navigation.navigate('QuizPage')}
 			title="Start Quiz"
 		/>
-	</View>
+	</Container>
 );
 
 export default Deck;

@@ -12,7 +12,7 @@ const Container = styled.View`
 const Home = ({ navigation }) => (
 	<Container>
 		<Button
-			title="Home Page"
+			title="Colors"
 			onPress={() => navigation.navigate('IndividualDeckPage')}
 		/>
 	</Container>
