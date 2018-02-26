@@ -1,5 +1,7 @@
 {
-  "expo": {
-    "sdkVersion": "25.0.0"
-  }
+	"expo": {
+		"sdkVersion": "25.0.0"
+	},
+	"name": "Mobile Flashcards",
+	"displayname": "Mobile Flashcards"
 }
