@@ -1,22 +1,21 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
+import styled from 'styled-components';
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-});
+const Container = styled.View`
+	flex: 1;
+	background-color: #fff;
+	align-items: center;
+	justify-content: center;
+`;
 
 const Home = ({ navigation }) => (
-	<View style={styles.container}>
+	<Container>
 		<Button
 			title="Home Page"
 			onPress={() => navigation.navigate('IndividualDeckPage')}
 		/>
-	</View>
+	</Container>
 );
 
 export default Home;
