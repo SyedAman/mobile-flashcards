@@ -25,9 +25,9 @@ class Home extends Component {
 			<Container>
 				{this.state.decks.map((deck, index) => (
 					<Button
+						onPress={() => navigation.navigate('IndividualDeckPage', { deck })}
 						title={deck.name}
 						key={index}
-						onPress={() => navigation.navigate('IndividualDeckPage')}
 					/>
 				))}
 			</Container>

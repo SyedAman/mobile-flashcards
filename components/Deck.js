@@ -6,20 +6,24 @@ const Container = styled.View`
 	flex: 1;
 `;
 
-const Deck = ({ navigation }) => (
-	<Container>
-		<Text>Colors</Text>
-		<Text>5 Cards</Text>
+const Deck = ({ navigation }) => {
+	const { params } = navigation.state;
 
-		<Button
-			onPress={() => navigation.navigate('NewCardPage')}
-			title="Add Card"
-		/>
-		<Button
-			onPress={() => navigation.navigate('QuizPage')}
-			title="Start Quiz"
-		/>
-	</Container>
-);
+	return (
+		<Container>
+			<Text>Colors</Text>
+			<Text>{`${params.deck.cards.length} cards`}</Text>
+
+			<Button
+				onPress={() => navigation.navigate('NewCardPage')}
+				title="Add Card"
+			/>
+			<Button
+				onPress={() => navigation.navigate('QuizPage')}
+				title="Start Quiz"
+			/>
+		</Container>
+	);
+};
 
 export default Deck;
