@@ -17,7 +17,7 @@ const MainNavigator = StackNavigator(
 		NewCardPage: {
 			screen: NewCard,
 		},
-		Quiz: {
+		QuizPage: {
 			screen: Quiz,
 		},
 	},
