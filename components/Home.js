@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import styled from 'styled-components';
+
+import initialState from '../reducers/initialState';
 
 const Container = styled.View`
 	flex: 1;
@@ -9,13 +11,28 @@ const Container = styled.View`
 	justify-content: center;
 `;
 
-const Home = ({ navigation }) => (
-	<Container>
-		<Button
-			title="Colors"
-			onPress={() => navigation.navigate('IndividualDeckPage')}
-		/>
-	</Container>
-);
+class Home extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = initialState;
+	}
+
+	render() {
+		const { navigation } = this.props;
+
+		return (
+			<Container>
+				{this.state.decks.map((deck, index) => (
+					<Button
+						title={deck.name}
+						key={index}
+						onPress={() => navigation.navigate('IndividualDeckPage')}
+					/>
+				))}
+			</Container>
+		);
+	}
+}
 
 export default Home;
