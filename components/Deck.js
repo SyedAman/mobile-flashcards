@@ -7,19 +7,19 @@ const Container = styled.View`
 `;
 
 const Deck = ({ navigation }) => {
-	const { params } = navigation.state;
+	const { deck } = navigation.state.params;
 
 	return (
 		<Container>
 			<Text>Colors</Text>
-			<Text>{`${params.deck.cards.length} cards`}</Text>
+			<Text>{`${deck.cards.length} cards`}</Text>
 
 			<Button
 				onPress={() => navigation.navigate('NewCardPage')}
 				title="Add Card"
 			/>
 			<Button
-				onPress={() => navigation.navigate('QuizPage')}
+				onPress={() => navigation.navigate('QuizPage', { deck })}
 				title="Start Quiz"
 			/>
 		</Container>
