@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Text, Button } from 'react-native';
 
 const styles = StyleSheet.create({
 	container: {
@@ -10,9 +10,12 @@ const styles = StyleSheet.create({
 	},
 });
 
-const Home = () => (
+const Home = ({ navigation }) => (
 	<View style={styles.container}>
-		<Text>Home Page</Text>
+		<Button
+			title="Home Page"
+			onPress={() => navigation.navigate('IndividualDeckPage')}
+		/>
 	</View>
 );
 
