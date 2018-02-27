@@ -11,7 +11,7 @@ const Deck = ({ navigation }) => {
 
 	return (
 		<Container>
-			<Text>Colors</Text>
+			<Text>{deck.name}</Text>
 			<Text>{`${deck.cardsById.length} cards`}</Text>
 
 			<Button
