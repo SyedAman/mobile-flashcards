@@ -22,7 +22,12 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = initialState;
+		this.state = {
+			decks: Object.keys(initialState.decks.byId).map(
+				deckId => initialState.decks.byId[deckId],
+			),
+			cards: initialState.cards.byId,
+		};
 	}
 
 	render() {
@@ -33,14 +38,14 @@ class Home extends Component {
 				<Text>NashCards</Text>
 				<Text>Decks</Text>
 
-				{this.state.decks.map((deck, index) => (
+				{this.state.decks.map(deck => (
 					<DeckButton
 						onPress={() => navigation.navigate('IndividualDeckPage', { deck })}
 						title={deck.name}
-						key={index}
+						key={deck.id}
 					>
 						<Text>{deck.name}</Text>
-						<Text>{`${deck.cards.length} cards`}</Text>
+						<Text>{`${deck.cardsById.length} cards`}</Text>
 					</DeckButton>
 				))}
 			</Container>

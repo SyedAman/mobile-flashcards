@@ -12,7 +12,7 @@ const Deck = ({ navigation }) => {
 	return (
 		<Container>
 			<Text>Colors</Text>
-			<Text>{`${deck.cards.length} cards`}</Text>
+			<Text>{`${deck.cardsById.length} cards`}</Text>
 
 			<Button
 				onPress={() => navigation.navigate('NewCardPage')}

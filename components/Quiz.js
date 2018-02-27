@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
 
-const Quiz = ({ navigation }) => {
-	return (
-		<View>
-			<Text>What is the color of the sky?</Text>
+class Quiz extends Component {
+	render() {
+		const { navigation } = this.props;
+		const { deck } = navigation.state.params;
 
-			<Button title="Correct" />
-			<Button title="Incorrect" />
-		</View>
-	);
-};
+		return (
+			<View>
+				<Text>What is the color of the sky?</Text>
+
+				<Button title="Correct" />
+				<Button title="Incorrect" />
+			</View>
+		);
+	}
+}
 
 export default Quiz;
