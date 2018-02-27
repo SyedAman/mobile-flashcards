@@ -11,6 +11,13 @@ const Container = styled.View`
 	justify-content: center;
 `;
 
+const DeckButton = styled(TouchableOpacity)`
+	background-color: rgb(139, 164, 201);
+	margin: 10px;
+	justify-content: space-around;
+	flex-direction: column;
+`;
+
 class Home extends Component {
 	constructor(props) {
 		super(props);
@@ -27,14 +34,14 @@ class Home extends Component {
 				<Text>Decks</Text>
 
 				{this.state.decks.map((deck, index) => (
-					<TouchableOpacity
+					<DeckButton
 						onPress={() => navigation.navigate('IndividualDeckPage', { deck })}
 						title={deck.name}
 						key={index}
 					>
 						<Text>{deck.name}</Text>
 						<Text>{`${deck.cards.length} cards`}</Text>
-					</TouchableOpacity>
+					</DeckButton>
 				))}
 			</Container>
 		);
