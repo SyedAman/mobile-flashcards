@@ -2,10 +2,12 @@ const initialState = {
 	decks: {
 		byId: {
 			jasd123fas: {
+				id: 'jasd123fas',
 				name: 'colors',
 				cardsById: ['asd213', 'ggajkj123', 'oopuioasd323'],
 			},
 			gascvm213: {
+				id: 'gascvm213',
 				name: 'food',
 				cardsById: ['asdasdpopo213', 'aczxnmn23'],
 			},
