@@ -1,12 +1,13 @@
-import initialState from "./initialState";
+import initialState from './initialState';
 
-import actionTypes from "../actions/actionTypes";
+import actionTypes from '../actions/actionTypes';
 
-function decks(state = initialState.decks, action) {
-  switch (action.type) {
-    case actionTypes.CREATE_DECK:
-      return initialState;
-  }
+function decks(previousState = initialState.decks, action) {
+	switch (action.type) {
+		case actionTypes.CREATE_DECK:
+			console.log(action);
+			return previousState;
+	}
 }
 
 export default decks;
