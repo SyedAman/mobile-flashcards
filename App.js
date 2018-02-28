@@ -1,5 +1,5 @@
 import React from 'react';
 
-import MainNavigator from './components/MainNavigator';
+import MainNavigator from './src/components/MainNavigator';
 
 export default () => <MainNavigator />;
