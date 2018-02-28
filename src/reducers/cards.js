@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import actionTypes from '../actions/actionTypes';
+import * as actionTypes from '../actions/actionTypes';
 
 export default function cards(previousState = initialState.cards, action) {
 	switch (action.type) {
@@ -8,6 +8,8 @@ export default function cards(previousState = initialState.cards, action) {
 			return previousState;
 		case actionTypes.ADD_ANSWER_TO_CARD:
 			console.log(action);
+			return previousState;
+		default:
 			return previousState;
 	}
 }
