@@ -51,7 +51,6 @@ class Home extends Component {
 
 const mapStateToProps = ({ decks, cards }) => ({
 	decks: Object.keys(decks.byId).map(deckId => decks.byId[deckId]),
-	cards: cards.byId,
 });
 
 export default connect(mapStateToProps)(Home);
