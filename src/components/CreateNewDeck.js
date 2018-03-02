@@ -42,6 +42,7 @@ class CreateNewDeck extends Component {
 
 				<NewDeckNameTextField
 					onChangeText={newText => this.setState({ newDeckName: newText })}
+					placeholder="New deck name..."
 				/>
 
 				<SubmitButton onPress={() => handleSubmit(this.state.newDeckname)}>
