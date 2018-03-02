@@ -2,7 +2,7 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
 import Home from '../containers/Home';
-import Individual from './IndividualDeck';
+import IndividualDeck from './IndividualDeck';
 import NewCard from './NewCard';
 import Quiz from './Quiz';
 import CreateNewDeck from './CreateNewDeck';
