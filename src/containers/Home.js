@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import initialState from '../reducers/initialState';
@@ -23,22 +24,19 @@ class Home extends Component {
 		super(props);
 
 		this.state = {
-			decks: Object.keys(initialState.decks.byId).map(
-				deckId => initialState.decks.byId[deckId],
-			),
 			cards: initialState.cards.byId,
 		};
 	}
 
 	render() {
-		const { navigation } = this.props;
+		const { navigation, decks } = this.props;
 
 		return (
 			<Container>
 				<Text>NashCards</Text>
 				<Text>Decks</Text>
 
-				{this.state.decks.map(deck => (
+				{decks.map(deck => (
 					<DeckButton
 						onPress={() => navigation.navigate('IndividualDeckPage', { deck })}
 						title={deck.name}
@@ -53,4 +51,8 @@ class Home extends Component {
 	}
 }
 
-export default Home;
+const mapStateToProps = ({ decks }) => ({
+	decks: Object.keys(decks.byId).map(deckId => decks.byId[deckId]),
+});
+
+export default connect(mapStateToProps)(Home);
