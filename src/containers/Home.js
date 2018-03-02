@@ -19,6 +19,12 @@ const DeckButton = styled(TouchableOpacity)`
 	flex-direction: column;
 `;
 
+const CreateNewDeckButton = styled(TouchableOpacity)`
+	background-color: rgb(39, 200, 89);
+	width: 100px;
+	border-radius: 50px;
+`;
+
 class Home extends Component {
 	constructor(props) {
 		super(props);
@@ -31,6 +37,12 @@ class Home extends Component {
 
 		return (
 			<Container>
+				<CreateNewDeckButton
+					onPress={() => navigation.navigate('CreateNewDeckPage')}
+				>
+					<Text>+</Text>
+				</CreateNewDeckButton>
+
 				<Text>NashCards</Text>
 				<Text>Decks</Text>
 
