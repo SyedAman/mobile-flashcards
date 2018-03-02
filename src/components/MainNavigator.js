@@ -3,9 +3,9 @@ import { StackNavigator } from 'react-navigation';
 
 import Home from '../containers/Home';
 import IndividualDeck from './IndividualDeck';
-import NewCard from './NewCard';
+import NewCard from '../containers/NewCard';
 import Quiz from './Quiz';
-import CreateNewDeck from './CreateNewDeck';
+import CreateNewDeck from '../containers/CreateNewDeck';
 
 const MainNavigator = StackNavigator(
 	{
