@@ -38,7 +38,7 @@ class CreateNewDeck extends Component {
 	render() {
 		return (
 			<Container>
-				<Header>New Deck</Header>
+				<Header>What is the t itel of your new deck?</Header>
 
 				<NewDeckNameTextField
 					onChangeText={newText => this.setState({ newDeckName: newText })}
