@@ -42,7 +42,7 @@ class CreateNewDeck extends Component {
 	render() {
 		return (
 			<Container>
-				<Header>What is the t itel of your new deck?</Header>
+				<Header>What do you want to call your new deck?</Header>
 
 				<NewDeckNameTextField
 					onChangeText={newText => this.handleNewDeckNameInput(newText)}
