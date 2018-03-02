@@ -5,6 +5,7 @@ import Home from '../containers/Home';
 import Deck from './Deck';
 import NewCard from './NewCard';
 import Quiz from './Quiz';
+import CreateNewDeck from './CreateNewDeck';
 
 const MainNavigator = StackNavigator(
 	{
@@ -19,6 +20,9 @@ const MainNavigator = StackNavigator(
 		},
 		QuizPage: {
 			screen: Quiz,
+		},
+		CreateNewDeckPage: {
+			screen: CreateNewDeck,
 		},
 	},
 	{
