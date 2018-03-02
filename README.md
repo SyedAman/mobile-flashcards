@@ -26,5 +26,4 @@ $ yarn start # run dev server
 
 ##### iOS
 
-* Run your iOS simulator (you can use XCode etc.)
-* Press a for running the app on the iOS emulator
+* Note: has not been tested on iOS!
