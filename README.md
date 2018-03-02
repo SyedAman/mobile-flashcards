@@ -13,17 +13,29 @@ $ yarn start # run dev server
 
 #### On your phone
 
-* Download the Expo app
-* Press q to display QR code in the Expo app
-* Expo app should take you to the app
+- Download the Expo app
+- Press q to display QR code in the Expo app
+- Expo app should take you to the app
 
 #### On your emulator
 
 ##### Android
 
-* Run your android simulator (you can use Visual Studio, Android Studio, or Genymotion, etc.)
-* Press a for running the app on the android emulator
+- Run your android simulator (you can use Visual Studio, Android Studio, or Genymotion, etc.)
+- Press a for running the app on the android emulator
 
 ##### iOS
 
-* Note: has not been tested on iOS!
+- Note: has not been tested on iOS!
+
+## Debugging
+
+### Redux
+
+Go to <http://remotedev.io/local/> a t r r
+
+un### React
+
+```sh
+$ yarn global add react-devtools
+```
