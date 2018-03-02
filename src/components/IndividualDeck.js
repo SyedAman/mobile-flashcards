@@ -6,7 +6,7 @@ const Container = styled.View`
 	flex: 1;
 `;
 
-const Deck = ({ navigation }) => {
+const IndividualDeck = ({ navigation }) => {
 	const { deck } = navigation.state.params;
 
 	return (
@@ -26,4 +26,4 @@ const Deck = ({ navigation }) => {
 	);
 };
 
-export default Deck;
+export default IndividualDeck;

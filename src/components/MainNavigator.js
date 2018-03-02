@@ -2,7 +2,7 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
 import Home from '../containers/Home';
-import Deck from './Deck';
+import Individual from './Individual';
 import NewCard from './NewCard';
 import Quiz from './Quiz';
 import CreateNewDeck from './CreateNewDeck';
@@ -13,7 +13,7 @@ const MainNavigator = StackNavigator(
 			screen: Home,
 		},
 		IndividualDeckPage: {
-			screen: Deck,
+			screen: IndividualDeck,
 		},
 		NewCardPage: {
 			screen: NewCard,
