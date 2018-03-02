@@ -1,11 +1,47 @@
-import React from 'react';
-import { View, Text, TextInput } from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
 
-const NewCard = () => (
-	<View>
-		<TextInput placeholder="Question" />
-		<TextInput placeholder="Correct Answer" />
-	</View>
-);
+import * as actionCreators from '../actions';
 
-export default NewCard;
+class NewCard extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			cardQuestion: '',
+			cardAnswer: '',
+		};
+	}
+
+	handleSubmit = () => {
+		const newCardData = {
+			question: this.state.cardQuestion,
+			answers: this.state.cardAnswer,
+		};
+
+		this.props.addCardToDeck(newCardData);
+	};
+
+	render() {
+		return (
+			<View>
+				<TextInput
+					onTextChange={newText => this.setState({ cardQuestion: newText })}
+					placeholder="Question"
+				/>
+				<TextInput
+					onTextChange={newText => this.setState({ cardAnswer: newText })}
+					placeholder="Correct Answer"
+				/>
+				<TouchableOpacity onPress={this.handleSubmit} />
+			</View>
+		);
+	}
+}
+
+const mapDispatchToProps = dispatch => ({
+	addCardToDeck: newCard => dispatch(actionCreators.addCardToDeck(newCard)),
+});
+
+export default connect(mapDispatchToProps)(NewCard);
