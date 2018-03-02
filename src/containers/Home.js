@@ -23,9 +23,7 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			cards: initialState.cards.byId,
-		};
+		this.state = {};
 	}
 
 	render() {
@@ -51,8 +49,9 @@ class Home extends Component {
 	}
 }
 
-const mapStateToProps = ({ decks }) => ({
+const mapStateToProps = ({ decks, cards }) => ({
 	decks: Object.keys(decks.byId).map(deckId => decks.byId[deckId]),
+	cards: cards.byId,
 });
 
 export default connect(mapStateToProps)(Home);
