@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
-import * as actionCreators from '../actions';
+import { addCardToDeck } from '../actions';
 
 class NewCard extends Component {
 	constructor(props) {
@@ -16,11 +16,12 @@ class NewCard extends Component {
 
 	handleSubmit = () => {
 		const newCardData = {
+			parentId: '',
 			question: this.state.cardQuestion,
 			answers: this.state.cardAnswer,
 		};
 
-		this.props.addCardToDeck(newCardData);
+		this.props.onAddCardToDeck(newCardData);
 	};
 
 	render() {
@@ -41,7 +42,7 @@ class NewCard extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-	addCardToDeck: newCard => dispatch(actionCreators.addCardToDeck(newCard)),
+	onAddCardToDeck: newCard => dispatch(addCardToDeck(newCard)),
 });
 
-export default connect(mapDispatchToProps)(NewCard);
+export default connect(null, mapDispatchToProps)(NewCard);

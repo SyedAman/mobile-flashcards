@@ -17,7 +17,7 @@ const IndividualDeck = ({ navigation }) => {
 			<Text>{`${deck.cardsById.length} cards`}</Text>
 
 			<Button
-				onPress={() => navigation.navigate('NewCardPage')}
+				onPress={() => navigation.navigate('NewCardPage', deck.id)}
 				title="Add Card"
 			/>
 			<Button
