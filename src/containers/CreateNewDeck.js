@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import * as actionCreators from '../actions';
+import { createDeck } from '../actions';
 
 const Container = styled.View`
 	flex: 1;
@@ -30,8 +30,12 @@ class CreateNewDeck extends Component {
 		};
 	}
 
-	handleSubmit = newDeckName => {
-		this.props.createDeck(newDeckName);
+	handleNewDeckNameInput = input => {
+		this.setState({ newDeckName: input });
+	};
+
+	handleSubmit = () => {
+		this.props.onSubmit(this.state.newDeckName);
 		this.props.navigation.navigate('HomePage');
 	};
 
@@ -41,11 +45,11 @@ class CreateNewDeck extends Component {
 				<Header>What is the t itel of your new deck?</Header>
 
 				<NewDeckNameTextField
-					onChangeText={newText => this.setState({ newDeckName: newText })}
+					onChangeText={newText => this.handleNewDeckNameInput(newText)}
 					placeholder="New deck name..."
 				/>
 
-				<SubmitButton onPress={() => handleSubmit(this.state.newDeckname)}>
+				<SubmitButton onPress={() => this.handleSubmit()}>
 					<Text>Submit</Text>
 				</SubmitButton>
 			</Container>
@@ -54,7 +58,9 @@ class CreateNewDeck extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-	createDeck: newDeckName => dispatch(actionCreators.createDeck(newDeckName)),
+	onSubmit: newDeckName => {
+		dispatch(createDeck(newDeckName));
+	},
 });
 
-export default connect(mapDispatchToProps)(CreateNewDeck);
+export default connect(null, mapDispatchToProps)(CreateNewDeck);
