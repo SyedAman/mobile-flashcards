@@ -17,6 +17,22 @@ function decks(previousState = initialState.decks, action) {
 					},
 				},
 			};
+    case actionTypes.ADD_CARD_TO_DECK:
+      let { id, parentId, question, answer } = action;
+      
+      return {
+        ...previousState,
+        byId: {
+          ...previousState.byId,
+          [parentId]: {
+            ...previousState.byId[parentId],
+            cardsById: [
+              ...previousState.byId[parentId].cardsById,
+              id
+            ]
+          }
+        }
+      }
 		default:
 			return previousState;
 	}
