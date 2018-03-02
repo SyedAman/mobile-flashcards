@@ -8,3 +8,11 @@ export const createDeck = name => ({
 	name,
 	cardsById: [],
 });
+
+export const addCardToDeck = ({ parentId, question, answer }) => ({
+	type: actionTypes.CREATE_DECK,
+	id: uniqid(),
+	parentId,
+	question,
+	answer,
+});
