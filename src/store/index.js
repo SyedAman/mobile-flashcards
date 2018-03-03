@@ -1,15 +1,15 @@
-import { createStore, applyMiddleware } from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-import { composeWithDevTools } from 'remote-redux-devtools';
+import {createLogger} from 'redux-logger';
+import {composeWithDevTools} from 'remote-redux-devtools';
 
 import rootReducer from '../reducers';
 
 const loggerMiddleware = createLogger();
 
 const store = createStore(
-	rootReducer,
-	composeWithDevTools(applyMiddleware(thunkMiddleware, loggerMiddleware)),
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunkMiddleware, loggerMiddleware))
 );
 
 export default store;
