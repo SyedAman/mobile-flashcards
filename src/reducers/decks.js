@@ -19,15 +19,15 @@ function decks(previousState = initialState.decks, action) {
       };
     }
     case actionTypes.ADD_CARD_TO_DECK: {
-      const {id, parentId, question, answer} = action;
+      const {id, deckId} = action;
 
       return {
         ...previousState,
         byId: {
           ...previousState.byId,
-          [parentId]: {
-            ...previousState.byId[parentId],
-            cardsById: [...previousState.byId[parentId].cardsById, id],
+          [deckId]: {
+            ...previousState.byId[deckId],
+            cardsById: [...previousState.byId[deckId].cardsById, id],
           },
         },
       };

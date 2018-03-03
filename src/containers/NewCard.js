@@ -1,8 +1,17 @@
 import React, {Component} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
+import styled from 'styled-components';
 
 import {addCardToDeck} from '../actions';
+
+const Container = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SubmitButton = styled.TouchableOpacity``;
 
 class NewCard extends Component {
   constructor(props) {
@@ -15,8 +24,9 @@ class NewCard extends Component {
   }
 
   handleSubmit = () => {
+    const deckId = this.props.navigation.state.params;
     const newCardData = {
-      parentId: '',
+      deckId,
       question: this.state.cardQuestion,
       answers: this.state.cardAnswer,
     };
@@ -24,19 +34,29 @@ class NewCard extends Component {
     this.props.onAddCardToDeck(newCardData);
   };
 
+  handleQuestionInput = newText => {
+    this.setState({cardQuestion: newText});
+  };
+
+  handleAnswerInput = newText => {
+    this.setState({cardAnswer: newText});
+  };
+
   render() {
     return (
-      <View>
+      <Container>
         <TextInput
-          onTextChange={newText => this.setState({cardQuestion: newText})}
+          onTextChange={newText => this.handleQuestionInput(newText)}
           placeholder="Question"
         />
         <TextInput
-          onTextChange={newText => this.setState({cardAnswer: newText})}
+          onTextChange={newText => handleAnswerInput(newText)}
           placeholder="Correct Answer"
         />
-        <TouchableOpacity onPress={this.handleSubmit} />
-      </View>
+        <SubmitButton onPress={this.handleSubmit}>
+          <Text>Submit</Text>
+        </SubmitButton>
+      </Container>
     );
   }
 }
