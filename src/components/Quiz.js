@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableWithoutFeedback} from 'react-native';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 
@@ -26,6 +26,7 @@ class Quiz extends Component {
 
     this.state = {
       currentCard: props.cards[0],
+      isCardFacedUp: true,
     };
   }
 
@@ -39,23 +40,36 @@ class Quiz extends Component {
     });
   };
 
+  handleFlip = () => {
+    this.setState({isCardFacedUp: !this.state.isCardFacedUp});
+  };
+
   render() {
     const {cards} = this.props;
-    const {currentCard} = this.state;
+    const {currentCard, isCardFacedUp} = this.state;
 
     return (
-      <ContainerWithMargin>
-        <Header3>{`${cards.indexOf(currentCard) + 1}/${cards.length}`}</Header3>
-        <Card card={this.state.currentCard} />
+      <TouchableWithoutFeedback onPress={() => this.handleFlip()}>
+        <ContainerWithMargin>
+          <Header3>
+            {`${cards.indexOf(currentCard) + 1}/${cards.length}`}
+          </Header3>
 
-        <CorrectButton onPress={() => console.log('correct')}>
-          <Text>Correct</Text>
-        </CorrectButton>
+          <Card
+            card={this.state.currentCard}
+            isCardFacedUp={isCardFacedUp}
+            onHandleFlip={this.handleFlip}
+          />
 
-        <IncorrectButton onPress={() => console.log('incorrect')}>
-          <Text>Incorrect</Text>
-        </IncorrectButton>
-      </ContainerWithMargin>
+          <CorrectButton onPress={() => console.log('correct')}>
+            <Text>Correct</Text>
+          </CorrectButton>
+
+          <IncorrectButton onPress={() => console.log('incorrect')}>
+            <Text>Incorrect</Text>
+          </IncorrectButton>
+        </ContainerWithMargin>
+      </TouchableWithoutFeedback>
     );
   }
 }
