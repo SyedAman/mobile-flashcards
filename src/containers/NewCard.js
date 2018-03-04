@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import {addCardToDeck} from '../actions';
 import Container from '../components/Container';
 import GenericButton from '../components/GenericButton';
+import Header1 from '../components/Headers/Header1';
 
 class NewCard extends Component {
   constructor(props) {
@@ -46,6 +47,8 @@ class NewCard extends Component {
   render() {
     return (
       <Container>
+        <Header1>Add a Flashcard</Header1>
+
         <TextInput
           onChangeText={newText => this.handleQuestionInput(newText)}
           placeholder="Question"
@@ -54,6 +57,7 @@ class NewCard extends Component {
           onChangeText={newText => this.handleAnswerInput(newText)}
           placeholder="Correct Answer"
         />
+
         <GenericButton onPress={this.handleSubmit}>
           <Text>Submit</Text>
         </GenericButton>

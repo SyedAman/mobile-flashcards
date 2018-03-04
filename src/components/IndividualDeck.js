@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 
 import Container from './Container';
 import GenericButton from './GenericButton';
+import Header1 from './Headers/Header1';
+import Header3 from './Headers/Header3';
 
 const AddFlashcardButton = GenericButton.extend`
   background-color: #329fcf;
@@ -25,8 +27,8 @@ class IndividualDeck extends Component {
 
     return (
       <Container>
-        <Text>{deck.name}</Text>
-        <Text>{`${deck.cardsById.length} cards`}</Text>
+        <Header1>{deck.name}</Header1>
+        <Header3>{`${deck.cardsById.length} cards`}</Header3>
 
         <AddFlashcardButton
           onPress={() => navigation.navigate('NewCardPage', deck.id)}>

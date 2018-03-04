@@ -6,8 +6,7 @@ import {connect} from 'react-redux';
 import {createDeck} from '../actions';
 import Container from '../components/Container';
 import GenericButton from '../components/GenericButton';
-
-const Header = styled.Text``;
+import Header2 from '../components/Headers/Header2';
 
 const NewDeckNameTextField = styled.TextInput``;
 
@@ -32,7 +31,7 @@ class CreateNewDeck extends Component {
   render() {
     return (
       <Container>
-        <Header>What do you want to call your new deck?</Header>
+        <Header2>What do you want to call your new deck?</Header2>
 
         <NewDeckNameTextField
           onChangeText={newText => this.handleNewDeckNameInput(newText)}
