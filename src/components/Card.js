@@ -36,9 +36,23 @@ class Card extends Component {
   render() {
     const {card} = this.props;
 
-    const Front = <Header1>{card.question}</Header1>;
+    const Front = (
+      <Container>
+        <Header1>{card.question}</Header1>
+        <GenericButton onPress={() => this.handleFlip()}>
+          <Text>Show Answer</Text>
+        </GenericButton>
+      </Container>
+    );
 
-    const Back = <Header1>{card.answer}</Header1>;
+    const Back = (
+      <Container>
+        <Header1>{card.answer}</Header1>
+        <GenericButton onPress={() => this.handleFlip()}>
+          <Text>Show Question</Text>
+        </GenericButton>
+      </Container>
+    );
 
     return (
       <TouchableWithoutFeedback onPress={() => this.handleFlip()}>

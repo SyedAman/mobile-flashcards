@@ -14,6 +14,16 @@ class Quiz extends Component {
     };
   }
 
+  getNextCard = () => {
+    this.setState(({currentCard}) => {
+      const {cards} = this.props;
+
+      return {
+        currentCard: cards[cards.indexOf(currentCard) + 1],
+      };
+    });
+  };
+
   render() {
     return <Card card={this.state.currentCard} />;
   }
