@@ -3,11 +3,7 @@ import {View, Text, Button} from 'react-native';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 
-const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
+import Container from './Container';
 
 class IndividualDeck extends Component {
   constructor(props) {

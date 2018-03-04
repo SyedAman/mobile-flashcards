@@ -4,12 +4,7 @@ import {connect} from 'react-redux';
 import styled from 'styled-components';
 
 import {addCardToDeck} from '../actions';
-
-const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
+import Container from '../components/Container';
 
 const SubmitButton = styled.TouchableOpacity``;
 

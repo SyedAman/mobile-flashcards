@@ -5,19 +5,9 @@ import styled from 'styled-components';
 
 import Card from './Card';
 
-const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
-
 class Quiz extends Component {
   render() {
-    return (
-      <Container>
-        <Card />
-      </Container>
-    );
+    return <Card />;
   }
 }
 

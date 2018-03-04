@@ -4,12 +4,7 @@ import styled from 'styled-components';
 import {connect} from 'react-redux';
 
 import {createDeck} from '../actions';
-
-const Container = styled.View`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-`;
+import Container from '../components/Container';
 
 const Header = styled.Text``;
 

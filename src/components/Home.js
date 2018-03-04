@@ -5,12 +5,7 @@ import styled from 'styled-components';
 
 import initialState from '../reducers/initialState';
 
-const Container = styled.View`
-  flex: 1;
-  background-color: #fff;
-  align-items: center;
-  justify-content: center;
-`;
+import Container from './Container';
 
 const DeckButton = styled(TouchableOpacity)`
   background-color: rgb(139, 164, 201);
