@@ -1,10 +1,18 @@
 # Mobile Flashcards
+
 A mobile application made using React Native, React, and Redux.
 
 ## How to Run
+
 Running a React Native app is a little different than web apps.
 
+### Supported OS
+
+* Android
+* iOS (not tested)
+
 ### Run the Development Server
+
 First we need to run the app on our machine.
 
 ```sh
@@ -15,9 +23,11 @@ $ yarn start # run dev server
 ```
 
 ### Demo the app
+
 Now that we have the app running on our machine, we now need to use the app.
 
 #### On your phone
+
 You can run the app on your smartphone if you get the Expo app.
 
 * Download the Expo app
@@ -25,6 +35,7 @@ You can run the app on your smartphone if you get the Expo app.
 * Scan the QR code and then Expo app should serve the bundled JS
 
 #### On your emulator
+
 You can also run the app on an iOS or Android simulator in your machine.
 
 ##### Android
@@ -43,6 +54,7 @@ You can also run the app on an iOS or Android simulator in your machine.
 Go to <http://remotedev.io/local/> which will present you with a GUI
 
 ### Debug React UI and components
+
 You can also observe the hierarchy for app.
 
 ```sh
