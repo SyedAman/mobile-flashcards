@@ -25,13 +25,20 @@ class NewCard extends Component {
 
   handleSubmit = () => {
     const deckId = this.props.navigation.state.params;
+
     const newCardData = {
       deckId,
       question: this.state.cardQuestion,
-      answers: this.state.cardAnswer,
+      answer: this.state.cardAnswer,
     };
 
+    // validate form
+    if (!newCardData.deckId && !newCardData.question && !newCardData.answer) {
+      return;
+    }
+
     this.props.onAddCardToDeck(newCardData);
+    this.props.navigation.navigate('IndividualDeckPage');
   };
 
   handleQuestionInput = newText => {
@@ -46,11 +53,11 @@ class NewCard extends Component {
     return (
       <Container>
         <TextInput
-          onTextChange={newText => this.handleQuestionInput(newText)}
+          onChangeText={newText => this.handleQuestionInput(newText)}
           placeholder="Question"
         />
         <TextInput
-          onTextChange={newText => handleAnswerInput(newText)}
+          onChangeText={newText => this.handleAnswerInput(newText)}
           placeholder="Correct Answer"
         />
         <SubmitButton onPress={this.handleSubmit}>
