@@ -6,8 +6,16 @@ import styled from 'styled-components';
 import Card from './Card';
 
 class Quiz extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      currentCard: props.cards[0],
+    };
+  }
+
   render() {
-    return <Card />;
+    return <Card card={this.state.currentCard} />;
   }
 }
 
