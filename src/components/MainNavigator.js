@@ -1,7 +1,7 @@
 import React from 'react';
 import {StackNavigator} from 'react-navigation';
 
-import Home from '../containers/Home';
+import Home from './Home';
 import IndividualDeck from './IndividualDeck';
 import NewCard from '../containers/NewCard';
 import Quiz from './Quiz';

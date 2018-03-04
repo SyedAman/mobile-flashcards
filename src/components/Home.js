@@ -28,8 +28,6 @@ const CreateNewDeckButton = styled(TouchableOpacity)`
 class Home extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {};
   }
 
   render() {
@@ -47,7 +45,7 @@ class Home extends Component {
 
         {decks.map(deck => (
           <DeckButton
-            onPress={() => navigation.navigate('IndividualDeckPage', {deck})}
+            onPress={() => navigation.navigate('IndividualDeckPage', deck.id)}
             title={deck.name}
             key={deck.id}>
             <Text>{deck.name}</Text>
@@ -59,7 +57,7 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = ({decks, cards}) => ({
+const mapStateToProps = ({decks}) => ({
   decks: Object.keys(decks.byId).map(deckId => decks.byId[deckId]),
 });
 
