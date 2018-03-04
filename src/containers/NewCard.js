@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import {addCardToDeck} from '../actions';
 import Container from '../components/Container';
 
-const SubmitButton = styled.TouchableOpacity``;
+const SubmitTouchableOpacity = styled.TouchableOpacity``;
 
 class NewCard extends Component {
   constructor(props) {
@@ -55,9 +55,9 @@ class NewCard extends Component {
           onChangeText={newText => this.handleAnswerInput(newText)}
           placeholder="Correct Answer"
         />
-        <SubmitButton onPress={this.handleSubmit}>
+        <SubmitTouchableOpacity onPress={this.handleSubmit}>
           <Text>Submit</Text>
-        </SubmitButton>
+        </SubmitTouchableOpacity>
       </Container>
     );
   }

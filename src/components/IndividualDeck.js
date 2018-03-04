@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 
@@ -19,11 +19,11 @@ class IndividualDeck extends Component {
         <Text>{deck.name}</Text>
         <Text>{`${deck.cardsById.length} cards`}</Text>
 
-        <Button
+        <TouchableOpacity
           onPress={() => navigation.navigate('NewCardPage', deck.id)}
           title="Add Flashcard"
         />
-        <Button
+        <TouchableOpacity
           onPress={() => navigation.navigate('QuizPage', deck.id)}
           title="Start Quiz"
         />

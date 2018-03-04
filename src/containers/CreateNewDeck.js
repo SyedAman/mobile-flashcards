@@ -8,7 +8,7 @@ import Container from '../components/Container';
 
 const Header = styled.Text``;
 
-const SubmitButton = styled.TouchableOpacity`
+const SubmitTouchableOpacity = styled.TouchableOpacity`
   border-radius: 25px;
   width: 100px;
   height: 100px;
@@ -44,9 +44,9 @@ class CreateNewDeck extends Component {
           placeholder="New deck name..."
         />
 
-        <SubmitButton onPress={() => this.handleSubmit()}>
+        <SubmitTouchableOpacity onPress={() => this.handleSubmit()}>
           <Text>Submit</Text>
-        </SubmitButton>
+        </SubmitTouchableOpacity>
       </Container>
     );
   }

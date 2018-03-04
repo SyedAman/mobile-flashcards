@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
-import {Text, Button, TouchableWithoutFeedback, View} from 'react-native';
+import {
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import styled from 'styled-components';
 
 import Container from './Container';
@@ -7,8 +12,8 @@ import Container from './Container';
 const CardCount = styled.Text``;
 const Header = styled.Text``;
 const Subheader = styled.Text``;
-const CorrectButton = styled.Button``;
-const IncorrectButton = styled.Button``;
+const CorrectTouchableOpacity = styled.TouchableOpacity``;
+const IncorrectTouchableOpacity = styled.TouchableOpacity``;
 
 class Card extends Component {
   constructor(props) {
@@ -45,8 +50,8 @@ class Card extends Component {
         <Container>
           <CardCount>3/6</CardCount>
           {this.state.isCardFacedUp ? Front : Back}
-          <CorrectButton title="Correct" color="#00ff00" />
-          <IncorrectButton title="Incorrect" color="#ff4500" />
+          <CorrectTouchableOpacity title="Correct" color="#00ff00" />
+          <IncorrectTouchableOpacity title="Incorrect" color="#ff4500" />
         </Container>
       </TouchableWithoutFeedback>
     );
