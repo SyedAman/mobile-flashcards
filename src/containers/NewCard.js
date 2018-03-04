@@ -38,7 +38,7 @@ class NewCard extends Component {
     }
 
     this.props.onAddCardToDeck(newCardData);
-    this.props.navigation.navigate('IndividualDeckPage');
+    this.props.navigation.navigate('IndividualDeckPage', deckId);
   };
 
   handleQuestionInput = newText => {
