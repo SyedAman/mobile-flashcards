@@ -4,6 +4,12 @@ import {connect} from 'react-redux';
 import styled from 'styled-components';
 
 import Card from './Card';
+import Container from './Container';
+import Header3 from './Headers/Header3';
+
+const ContainerWithMargin = Container.extend`
+  margin: 100px 0;
+`;
 
 class Quiz extends Component {
   constructor(props) {
@@ -25,7 +31,15 @@ class Quiz extends Component {
   };
 
   render() {
-    return <Card card={this.state.currentCard} />;
+    const {cards} = this.props;
+    const {currentCard} = this.state;
+
+    return (
+      <ContainerWithMargin>
+        <Header3>{`${cards.indexOf(currentCard) + 1}/${cards.length}`}</Header3>
+        <Card card={this.state.currentCard} />
+      </ContainerWithMargin>
+    );
   }
 }
 

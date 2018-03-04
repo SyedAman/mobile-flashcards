@@ -16,10 +16,6 @@ const IncorrectButton = GenericButton.extend`
   background-color: #ec6418;
 `;
 
-const ContainerWithMargin = Container.extend`
-  margin: 100px 0;
-`;
-
 class Card extends Component {
   constructor(props) {
     super(props);
@@ -56,9 +52,7 @@ class Card extends Component {
 
     return (
       <TouchableWithoutFeedback onPress={() => this.handleFlip()}>
-        <ContainerWithMargin>
-          <Header3>3/6</Header3>
-
+        <Container>
           {this.state.isCardFacedUp ? Front : Back}
 
           <CorrectButton onPress={() => console.log('correct')}>
@@ -68,7 +62,7 @@ class Card extends Component {
           <IncorrectButton onPress={() => console.log('incorrect')}>
             <Text>Incorrect</Text>
           </IncorrectButton>
-        </ContainerWithMargin>
+        </Container>
       </TouchableWithoutFeedback>
     );
   }
