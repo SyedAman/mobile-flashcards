@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TextInput} from 'react-native';
+import {View, Text} from 'react-native';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 
@@ -7,6 +7,7 @@ import {addCardToDeck} from '../actions';
 import Container from '../components/Container';
 import GenericButton from '../components/GenericButton';
 import Header1 from '../components/Headers/Header1';
+import TextInputField from '../components/TextInputField';
 
 class NewCard extends Component {
   constructor(props) {
@@ -49,11 +50,11 @@ class NewCard extends Component {
       <Container>
         <Header1>Add a Flashcard</Header1>
 
-        <TextInput
+        <TextInputField
           onChangeText={newText => this.handleQuestionInput(newText)}
           placeholder="Question"
         />
-        <TextInput
+        <TextInputField
           onChangeText={newText => this.handleAnswerInput(newText)}
           placeholder="Correct Answer"
         />

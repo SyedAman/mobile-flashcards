@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TextInput} from 'react-native';
+import {View, Text} from 'react-native';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 
@@ -7,8 +7,7 @@ import {createDeck} from '../actions';
 import Container from '../components/Container';
 import GenericButton from '../components/GenericButton';
 import Header2 from '../components/Headers/Header2';
-
-const NewDeckNameTextField = styled.TextInput``;
+import TextInputField from '../components/TextInputField';
 
 class CreateNewDeck extends Component {
   constructor(props) {
@@ -33,7 +32,7 @@ class CreateNewDeck extends Component {
       <Container>
         <Header2>What do you want to call your new deck?</Header2>
 
-        <NewDeckNameTextField
+        <TextInputField
           onChangeText={newText => this.handleNewDeckNameInput(newText)}
           placeholder="New deck name..."
         />
