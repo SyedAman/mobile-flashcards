@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import Card from './Card';
 import Container from './Container';
+import Header1 from './Headers/Header1';
 import Header3 from './Headers/Header3';
 import GenericButton from './GenericButton';
 
@@ -51,6 +52,8 @@ class Quiz extends Component {
     return (
       <TouchableWithoutFeedback onPress={() => this.handleFlip()}>
         <ContainerWithMargin>
+          <Header1>Quiz</Header1>
+
           <Header3>
             {`${cards.indexOf(currentCard) + 1}/${cards.length}`}
           </Header3>
@@ -61,7 +64,7 @@ class Quiz extends Component {
             onHandleFlip={this.handleFlip}
           />
 
-          <CorrectButton onPress={() => console.log('correct')}>
+          <CorrectButton onPress={() => this.getNextCard()}>
             <Text>Correct</Text>
           </CorrectButton>
 
