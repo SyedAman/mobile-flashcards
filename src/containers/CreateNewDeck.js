@@ -1,18 +1,13 @@
 import React, {Component} from 'react';
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, TextInput} from 'react-native';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 
 import {createDeck} from '../actions';
 import Container from '../components/Container';
+import GenericButton from '../components/GenericButton';
 
 const Header = styled.Text``;
-
-const SubmitTouchableOpacity = styled.TouchableOpacity`
-  border-radius: 25px;
-  width: 100px;
-  height: 100px;
-`;
 
 const NewDeckNameTextField = styled.TextInput``;
 
@@ -44,9 +39,9 @@ class CreateNewDeck extends Component {
           placeholder="New deck name..."
         />
 
-        <SubmitTouchableOpacity onPress={() => this.handleSubmit()}>
+        <GenericButton onPress={() => this.handleSubmit()}>
           <Text>Submit</Text>
-        </SubmitTouchableOpacity>
+        </GenericButton>
       </Container>
     );
   }

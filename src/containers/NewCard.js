@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, TextInput} from 'react-native';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 
 import {addCardToDeck} from '../actions';
 import Container from '../components/Container';
-
-const SubmitTouchableOpacity = styled.TouchableOpacity``;
+import GenericButton from '../components/GenericButton';
 
 class NewCard extends Component {
   constructor(props) {
@@ -55,9 +54,9 @@ class NewCard extends Component {
           onChangeText={newText => this.handleAnswerInput(newText)}
           placeholder="Correct Answer"
         />
-        <SubmitTouchableOpacity onPress={this.handleSubmit}>
+        <GenericButton onPress={this.handleSubmit}>
           <Text>Submit</Text>
-        </SubmitTouchableOpacity>
+        </GenericButton>
       </Container>
     );
   }

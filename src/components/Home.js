@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import initialState from '../reducers/initialState';
 
 import Container from './Container';
+import GenericButton from './GenericButton';
 
 const DeckTouchableOpacity = styled(TouchableOpacity)`
   background-color: rgb(139, 164, 201);
@@ -14,10 +15,10 @@ const DeckTouchableOpacity = styled(TouchableOpacity)`
   flex-direction: column;
 `;
 
-const CreateNewDeckTouchableOpacity = styled(TouchableOpacity)`
-  background-color: rgb(39, 200, 89);
-  width: 100px;
-  border-radius: 50px;
+const NewDeckButton = GenericButton.extend`
+  background-color: #27c859;
+  padding: 5px 10px;
+  border-radius: 100px;
 `;
 
 class Home extends Component {
@@ -30,10 +31,9 @@ class Home extends Component {
 
     return (
       <Container>
-        <CreateNewDeckTouchableOpacity
-          onPress={() => navigation.navigate('CreateNewDeckPage')}>
+        <NewDeckButton onPress={() => navigation.navigate('CreateNewDeckPage')}>
           <Text>+</Text>
-        </CreateNewDeckTouchableOpacity>
+        </NewDeckButton>
 
         <Text>NashCards</Text>
         <Text>Decks</Text>

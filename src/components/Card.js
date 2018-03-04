@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
-import {
-  Text,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
+import {Text, TouchableWithoutFeedback, View} from 'react-native';
 import styled from 'styled-components';
 
 import Container from './Container';
+import GenericButton from './GenericButton';
 
 const CardCount = styled.Text``;
 const Header = styled.Text``;
 const Subheader = styled.Text``;
-const CorrectTouchableOpacity = styled.TouchableOpacity``;
-const IncorrectTouchableOpacity = styled.TouchableOpacity``;
+const CorrectButton = GenericButton.extend`
+  background-color: #67d424;
+`;
+const IncorrectButton = GenericButton.extend`
+  background-color: #ec6418;
+`;
 
 class Card extends Component {
   constructor(props) {
@@ -49,9 +49,16 @@ class Card extends Component {
       <TouchableWithoutFeedback onPress={() => this.handleFlip()}>
         <Container>
           <CardCount>3/6</CardCount>
+
           {this.state.isCardFacedUp ? Front : Back}
-          <CorrectTouchableOpacity title="Correct" color="#00ff00" />
-          <IncorrectTouchableOpacity title="Incorrect" color="#ff4500" />
+
+          <CorrectButton onPress={() => console.log('correct')}>
+            <Text>Correct</Text>
+          </CorrectButton>
+
+          <IncorrectButton onPress={() => console.log('incorrect')}>
+            <Text>Incorrect</Text>
+          </IncorrectButton>
         </Container>
       </TouchableWithoutFeedback>
     );
