@@ -1,25 +1,9 @@
 import React, {Component} from 'react';
-import {Text, TouchableWithoutFeedback} from 'react-native';
+import {TouchableWithoutFeedback} from 'react-native';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 
 import Card from './Card';
-import Container from './Container';
-import Header1 from './Headers/Header1';
-import Header3 from './Headers/Header3';
-import GenericButton from './GenericButton';
-
-const ContainerWithMargin = Container.extend`
-  margin: 100px 0;
-`;
-
-const CorrectButton = GenericButton.extend`
-  background-color: #67d424;
-`;
-
-const IncorrectButton = GenericButton.extend`
-  background-color: #ec6418;
-`;
 
 class Quiz extends Component {
   constructor(props) {
@@ -52,27 +36,13 @@ class Quiz extends Component {
 
     return (
       <TouchableWithoutFeedback onPress={() => this.handleFlip()}>
-        <ContainerWithMargin>
-          <Header1>Quiz</Header1>
-
-          <Header3>
-            {`${cards.indexOf(currentCard) + 1}/${cards.length}`}
-          </Header3>
-
-          <Card
-            card={this.state.currentCard}
-            isCardFacedUp={isCardFacedUp}
-            onHandleFlip={this.handleFlip}
-          />
-
-          <CorrectButton onPress={() => this.getNextCard()}>
-            <Text>Correct</Text>
-          </CorrectButton>
-
-          <IncorrectButton onPress={() => this.getNextCard()}>
-            <Text>Incorrect</Text>
-          </IncorrectButton>
-        </ContainerWithMargin>
+        <Card
+          currentCard={currentCard}
+          onHandleFlip={this.handleFlip}
+          onGetNextCard={this.getNextCard}
+          cardCount={`${cards.indexOf(currentCard) + 1}/${cards.length}`}
+          isCardFacedUp={isCardFacedUp}
+        />
       </TouchableWithoutFeedback>
     );
   }

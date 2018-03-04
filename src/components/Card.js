@@ -1,36 +1,50 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Text} from 'react-native';
 
+import Header1 from './Headers/Header1';
+import Header3 from './Headers/Header3';
+import CardContent from './CardContent';
 import Container from './Container';
 import GenericButton from './GenericButton';
-import Header1 from './Headers/Header1';
 
-class Card extends Component {
-  render() {
-    const {card, isCardFacedUp, onHandleFlip} = this.props;
+const ContainerWithMargin = Container.extend`
+  margin: 100px 0;
+`;
 
-    const Front = (
-      <Container>
-        <Header1>{card.question}</Header1>
+const CorrectButton = GenericButton.extend`
+  background-color: #67d424;
+`;
 
-        <GenericButton onPress={() => onHandleFlip()}>
-          <Text>Show Answer</Text>
-        </GenericButton>
-      </Container>
-    );
+const IncorrectButton = GenericButton.extend`
+  background-color: #ec6418;
+`;
 
-    const Back = (
-      <Container>
-        <Header1>{card.answer}</Header1>
+const Card = ({
+  currentCard,
+  onHandleFlip,
+  onGetNextCard,
+  cardCount,
+  isCardFacedUp,
+}) => (
+  <ContainerWithMargin>
+    <Header1>Quiz</Header1>
 
-        <GenericButton onPress={() => onHandleFlip()}>
-          <Text>Show Question</Text>
-        </GenericButton>
-      </Container>
-    );
+    <Header3>{cardCount}</Header3>
 
-    return isCardFacedUp ? Front : Back;
-  }
-}
+    <CardContent
+      card={currentCard}
+      isCardFacedUp={isCardFacedUp}
+      onHandleFlip={onHandleFlip}
+    />
+
+    <CorrectButton onPress={() => onGetNextCard()}>
+      <Text>Correct</Text>
+    </CorrectButton>
+
+    <IncorrectButton onPress={() => onGetNextCard()}>
+      <Text>Incorrect</Text>
+    </IncorrectButton>
+  </ContainerWithMargin>
+);
 
 export default Card;
