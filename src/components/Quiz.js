@@ -6,9 +6,18 @@ import styled from 'styled-components';
 import Card from './Card';
 import Container from './Container';
 import Header3 from './Headers/Header3';
+import GenericButton from './GenericButton';
 
 const ContainerWithMargin = Container.extend`
   margin: 100px 0;
+`;
+
+const CorrectButton = GenericButton.extend`
+  background-color: #67d424;
+`;
+
+const IncorrectButton = GenericButton.extend`
+  background-color: #ec6418;
 `;
 
 class Quiz extends Component {
@@ -38,6 +47,14 @@ class Quiz extends Component {
       <ContainerWithMargin>
         <Header3>{`${cards.indexOf(currentCard) + 1}/${cards.length}`}</Header3>
         <Card card={this.state.currentCard} />
+
+        <CorrectButton onPress={() => console.log('correct')}>
+          <Text>Correct</Text>
+        </CorrectButton>
+
+        <IncorrectButton onPress={() => console.log('incorrect')}>
+          <Text>Incorrect</Text>
+        </IncorrectButton>
       </ContainerWithMargin>
     );
   }
