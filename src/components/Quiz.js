@@ -28,6 +28,7 @@ class Quiz extends Component {
     this.state = {
       currentCard: props.cards[0],
       isCardFacedUp: true,
+      isCompleted: false,
     };
   }
 
@@ -68,7 +69,7 @@ class Quiz extends Component {
             <Text>Correct</Text>
           </CorrectButton>
 
-          <IncorrectButton onPress={() => console.log('incorrect')}>
+          <IncorrectButton onPress={() => this.getNextCard()}>
             <Text>Incorrect</Text>
           </IncorrectButton>
         </ContainerWithMargin>
