@@ -48,8 +48,18 @@ class Quiz extends Component {
     this.setState({isCardFacedUp: !this.state.isCardFacedUp});
   };
 
+  startOverQuiz = () => {
+    this.setState({
+      isCompleted: false,
+      currentCard: this.props.cards[0],
+      isCardFacedUp: true,
+      questionsCorrect: 0,
+    });
+  };
+
   render() {
-    const {cards} = this.props;
+    const {cards, navigation} = this.props;
+    const deckId = navigation.state.params;
     const {
       currentCard,
       isCardFacedUp,
@@ -63,6 +73,8 @@ class Quiz extends Component {
           <Results
             questionsCorrect={questionsCorrect}
             questionCount={cards.length}
+            onStartQuizOver={this.startOverQuiz}
+            onDone={() => navigation.navigate('IndividualDeckPage', deckId)}
           />
         ) : (
           <Card

@@ -12,7 +12,12 @@ const Score = Header1.extend`
 
 class Results extends Component {
   render() {
-    const {questionsCorrect, questionCount} = this.props;
+    const {
+      questionsCorrect,
+      questionCount,
+      onStartQuizOver,
+      onDone,
+    } = this.props;
     const percentCorrect = Math.round(questionsCorrect / questionCount * 100);
 
     return (
@@ -23,11 +28,11 @@ class Results extends Component {
           {`You got ${percentCorrect}% of ${questionCount} correct`}
         </Score>
 
-        <GenericButton>
+        <GenericButton onPress={() => onStartQuizOver()}>
           <Text>Start Quiz Over</Text>
         </GenericButton>
 
-        <GenericButton>
+        <GenericButton onPress={() => onDone()}>
           <Text>Done</Text>
         </GenericButton>
       </Container>
