@@ -4,7 +4,7 @@ import * as actionTypes from '../actions/actionTypes';
 export default function cards(previousState = initialState.cards, action) {
   switch (action.type) {
     case actionTypes.ADD_CARD_TO_DECK: {
-      const {id, question, answer} = action;
+      const {id, question, answer, deckId} = action;
 
       return {
         ...previousState,
@@ -12,6 +12,7 @@ export default function cards(previousState = initialState.cards, action) {
           ...previousState.byId,
           [id]: {
             id,
+            deckId,
             question,
             answer,
           },

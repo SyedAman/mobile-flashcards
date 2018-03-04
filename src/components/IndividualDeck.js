@@ -28,7 +28,7 @@ class IndividualDeck extends Component {
           title="Add Flashcard"
         />
         <Button
-          onPress={() => navigation.navigate('QuizPage', {deck})}
+          onPress={() => navigation.navigate('QuizPage', deck.id)}
           title="Start Quiz"
         />
       </Container>
