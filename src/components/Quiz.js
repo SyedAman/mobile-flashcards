@@ -22,6 +22,7 @@ class Quiz extends Component {
 
       return {
         currentCard: cards[cards.indexOf(currentCard) + 1],
+        isCardFacedUp: true,
       };
     });
   };
