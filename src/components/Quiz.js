@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import styled from 'styled-components';
 
 import Card from './Card';
+import Results from './Results';
 
 class Quiz extends Component {
   constructor(props) {
@@ -13,17 +14,33 @@ class Quiz extends Component {
       currentCard: props.cards[0],
       isCardFacedUp: true,
       isCompleted: false,
+      questionsCorrect: 0,
     };
   }
+
+  handleCorrectAnswer = () => {
+    this.setState(({questionsCorrect}) => ({
+      questionsCorrect: questionsCorrect + 1,
+    }));
+    this.getNextCard();
+  };
+
+  handleIncorrectAnswer = () => {
+    this.getNextCard();
+  };
 
   getNextCard = () => {
     this.setState(({currentCard}) => {
       const {cards} = this.props;
+      const cardIndex = cards.indexOf(currentCard);
+      const isCompleted = cardIndex + 1 === cards.length;
 
-      return {
-        currentCard: cards[cards.indexOf(currentCard) + 1],
-        isCardFacedUp: true,
-      };
+      return isCompleted
+        ? {currentCard: null, isCompleted}
+        : {
+            currentCard: cards[cardIndex + 1],
+            isCardFacedUp: true,
+          };
     });
   };
 
@@ -33,17 +50,30 @@ class Quiz extends Component {
 
   render() {
     const {cards} = this.props;
-    const {currentCard, isCardFacedUp} = this.state;
+    const {
+      currentCard,
+      isCardFacedUp,
+      isCompleted,
+      questionsCorrect,
+    } = this.state;
 
     return (
       <TouchableWithoutFeedback onPress={() => this.handleFlip()}>
-        <Card
-          currentCard={currentCard}
-          onHandleFlip={this.handleFlip}
-          onGetNextCard={this.getNextCard}
-          cardCount={`${cards.indexOf(currentCard) + 1}/${cards.length}`}
-          isCardFacedUp={isCardFacedUp}
-        />
+        {isCompleted ? (
+          <Results
+            questionsCorrect={questionsCorrect}
+            questionCount={cards.length}
+          />
+        ) : (
+          <Card
+            currentCard={currentCard}
+            onHandleFlip={this.handleFlip}
+            onCorrectAnswer={this.handleCorrectAnswer}
+            onIncorrectAnswer={this.handleIncorrectAnswer}
+            cardCountText={`${cards.indexOf(currentCard) + 1}/${cards.length}`}
+            isCardFacedUp={isCardFacedUp}
+          />
+        )}
       </TouchableWithoutFeedback>
     );
   }

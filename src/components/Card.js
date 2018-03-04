@@ -22,14 +22,15 @@ const IncorrectButton = GenericButton.extend`
 const Card = ({
   currentCard,
   onHandleFlip,
-  onGetNextCard,
-  cardCount,
+  onCorrectAnswer,
+  onIncorrectAnswer,
+  cardCountText,
   isCardFacedUp,
 }) => (
   <ContainerWithMargin>
     <Header1>Quiz</Header1>
 
-    <Header3>{cardCount}</Header3>
+    <Header3>{cardCountText}</Header3>
 
     <CardContent
       card={currentCard}
@@ -37,11 +38,11 @@ const Card = ({
       onHandleFlip={onHandleFlip}
     />
 
-    <CorrectButton onPress={() => onGetNextCard()}>
+    <CorrectButton onPress={() => onCorrectAnswer()}>
       <Text>Correct</Text>
     </CorrectButton>
 
-    <IncorrectButton onPress={() => onGetNextCard()}>
+    <IncorrectButton onPress={() => onIncorrectAnswer()}>
       <Text>Incorrect</Text>
     </IncorrectButton>
   </ContainerWithMargin>
