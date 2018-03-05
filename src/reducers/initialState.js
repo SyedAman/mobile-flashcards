@@ -3,13 +3,13 @@ const initialState = {
     byId: {
       jasd123fas: {
         id: 'jasd123fas',
-        name: 'colors',
-        cardsById: ['asd213', 'ggajkj123', 'oopuioasd323'],
+        name: 'React',
+        cardsById: ['asd213', 'ggajkj123'],
       },
       gascvm213: {
         id: 'gascvm213',
-        name: 'food',
-        cardsById: ['asdasdpopo213', 'aczxnmn23'],
+        name: 'JavaScript',
+        cardsById: ['oopuioasd323'],
       },
     },
   },
@@ -18,32 +18,21 @@ const initialState = {
       asd213: {
         id: 'asd213',
         deckId: 'jasd123fas',
-        question: 'what is the color of the sky?',
-        answer: 'blue',
+        question: 'What is React?',
+        answer: 'A library for managing user interfaces',
       },
       ggajkj123: {
         id: 'ggajkj123',
         deckId: 'jasd123fas',
-        question: 'what is the color of lava?',
-        answer: 'orange',
+        question: 'Where do you make Ajax requests in React?',
+        answer: 'The componentDidMount lifecycle event',
       },
       oopuioasd323: {
         id: 'oopuioasd323',
         deckId: 'jasd123fas',
-        question: 'what is the color of cloraphyll?',
-        answer: 'green',
-      },
-      asdasdpopo213: {
-        id: 'asdasdpopo213',
-        deckId: 'gascvm213',
-        question: 'what is everyones food?',
-        answer: 'pizza',
-      },
-      aczxnmn23: {
-        id: 'aczxnmn23',
-        deckId: 'gascvm213',
-        question: 'what is the black syrup on sundaes?',
-        answer: 'fudge',
+        question: 'What is a closure?',
+        answer:
+          'The combination of a function and the lexical environment within which that function was declared.',
       },
     },
   },
