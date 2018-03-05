@@ -43,7 +43,7 @@ export async function setLocalQuizNotification() {
       await Notifications.scheduleLocalNotificationAsync(
         createQuizNotification(),
         {
-          time: new Date().getTime() + 1000,
+          time: tomorrow,
         }
       );
 
