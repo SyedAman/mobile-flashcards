@@ -1,11 +1,14 @@
 import React from 'react';
 import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 
 import MainNavigator from './src/components/MainNavigator';
-import store from './src/store';
+import {store, persistor} from './src/store';
 
 export default () => (
   <Provider store={store}>
-    <MainNavigator />
+    <PersistGate loading={null} persistor={persistor}>
+      <MainNavigator />
+    </PersistGate>
   </Provider>
 );
