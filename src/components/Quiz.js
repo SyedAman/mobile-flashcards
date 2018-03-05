@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import Card from './Card';
 import Results from './Results';
+import {clearAllLocalNotifications, setLocalQuizNotification} from '../utils';
 
 class Quiz extends Component {
   constructor(props) {
@@ -29,11 +30,18 @@ class Quiz extends Component {
     this.getNextCard();
   };
 
+  resetQuizNotification = () => {
+    clearAllLocalNotifications();
+    setLocalQuizNotification();
+  };
+
   getNextCard = () => {
     this.setState(({currentCard}) => {
       const {cards} = this.props;
       const cardIndex = cards.indexOf(currentCard);
       const isCompleted = cardIndex + 1 === cards.length;
+
+      if (isCompleted) this.resetQuizNotification();
 
       return isCompleted
         ? {currentCard: null, isCompleted}
