@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 
@@ -36,15 +36,17 @@ class Home extends Component {
         <Header1>UdaciCards</Header1>
         <Header2>Decks</Header2>
 
-        {decks.map(deck => (
-          <DeckTouchableOpacity
-            onPress={() => navigation.navigate('IndividualDeckPage', deck.id)}
-            title={deck.name}
-            key={deck.id}>
-            <Text>{deck.name}</Text>
-            <Text>{`${deck.cardsById.length} cards`}</Text>
-          </DeckTouchableOpacity>
-        ))}
+        <ScrollView>
+          {decks.map(deck => (
+            <DeckTouchableOpacity
+              onPress={() => navigation.navigate('IndividualDeckPage', deck.id)}
+              title={deck.name}
+              key={deck.id}>
+              <Text>{deck.name}</Text>
+              <Text>{`${deck.cardsById.length} cards`}</Text>
+            </DeckTouchableOpacity>
+          ))}
+        </ScrollView>
 
         <NewDeckButton onPress={() => navigation.navigate('CreateNewDeckPage')}>
           <Header1>+</Header1>
