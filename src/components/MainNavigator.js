@@ -11,23 +11,27 @@ const MainNavigator = StackNavigator(
   {
     HomePage: {
       screen: Home,
+      navigationOptions: {title: 'Home'},
     },
     IndividualDeckPage: {
       screen: IndividualDeck,
+      navigationOptions: {title: 'Individual Deck'},
     },
     NewCardPage: {
       screen: NewCard,
+      navigationOptions: {title: 'New Flashcard'},
     },
     QuizPage: {
       screen: Quiz,
+      navigationOptions: {title: 'Quiz'},
     },
     CreateNewDeckPage: {
       screen: CreateNewDeck,
+      navigationOptions: {title: 'New Deck'},
     },
   },
   {
     initialRouteName: 'HomePage',
-    headerMode: 'none',
   }
 );
 
