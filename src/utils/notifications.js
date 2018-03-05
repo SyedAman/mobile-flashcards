@@ -25,30 +25,29 @@ export function clearAllLocalNotifications() {
   );
 }
 
-export function setLocalQuizNotification() {
-  AsyncStorage.getItem(NOTIFICATION_KEY)
-    .then(JSON.parse)
-    .then(data => {
-      if (data === null) {
-        Permissions.askAsync(Permissions.NOTIFICATIONS).then(({status}) => {
-          if (status === 'granted') {
-            Notifications.cancelAllScheduledNotificationsAsync();
+export async function setLocalQuizNotification() {
+  const data = await AsyncStorage.getItem(NOTIFICATION_KEY);
+  const parsedData = JSON.parse(data);
 
-            let tomorrow = new Date();
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            tomorrow.setHours(20);
-            tomorrow.setMinutes(0);
+  if (parsedData === null) {
+    const {status} = await Permissions.askAsync(Permissions.NOTIFICATIONS);
 
-            Notifications.scheduleLocalNotificationAsync(
-              createQuizNotification(),
-              {
-                time: tomorrow,
-              }
-            );
+    if (status === 'granted') {
+      await Notifications.cancelAllScheduledNotificationsAsync();
 
-            AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true));
-          }
-        });
-      }
-    });
+      let tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      tomorrow.setHours(20);
+      tomorrow.setMinutes(0);
+
+      await Notifications.scheduleLocalNotificationAsync(
+        createQuizNotification(),
+        {
+          time: new Date().getTime() + 1000,
+        }
+      );
+
+      await AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true));
+    }
+  }
 }
