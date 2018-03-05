@@ -5,7 +5,10 @@ import styled from 'styled-components';
 
 import Card from './Card';
 import Results from './Results';
-import {clearAllLocalNotifications, setLocalQuizNotification} from '../utils';
+import {
+  clearAllLocalNotifications,
+  setLocalQuizNotification,
+} from '../utils/notifications';
 
 class Quiz extends Component {
   constructor(props) {
