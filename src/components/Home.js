@@ -9,16 +9,20 @@ import Container from './Container';
 import GenericButton from './GenericButton';
 import Header1 from './Headers/Header1';
 import Header2 from './Headers/Header2';
+import CenteredText from './CenteredText';
+import {springGreen, powderBlue} from '../utils/colors';
 
-const DeckTouchableOpacity = styled(TouchableOpacity)`
-  background-color: rgb(139, 164, 201);
-  margin: 10px;
+const DeckButton = styled(TouchableOpacity)`
+  background-color: ${powderBlue};
+  margin: 10px 0;
+  padding: 5px;
+  border-radius: 5px;
   justify-content: space-around;
   flex-direction: column;
 `;
 
 const NewDeckButton = GenericButton.extend`
-  background-color: #27c859;
+  background-color: ${springGreen};
   padding: 5px 15px;
   border-radius: 100px;
 `;
@@ -38,13 +42,13 @@ class Home extends Component {
 
         <ScrollView>
           {decks.map(deck => (
-            <DeckTouchableOpacity
+            <DeckButton
               onPress={() => navigation.navigate('IndividualDeckPage', deck.id)}
               title={deck.name}
               key={deck.id}>
-              <Text>{deck.name}</Text>
-              <Text>{`${deck.cardsById.length} cards`}</Text>
-            </DeckTouchableOpacity>
+              <CenteredText>{deck.name}</CenteredText>
+              <CenteredText>{`${deck.cardsById.length} cards`}</CenteredText>
+            </DeckButton>
           ))}
         </ScrollView>
 

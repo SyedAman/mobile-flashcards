@@ -4,10 +4,10 @@ import {Text} from 'react-native';
 import Header1 from './Headers/Header1';
 import Container from './Container';
 import GenericButton from './GenericButton';
+import {springGreen, salmon} from '../utils/colors';
 
 const Score = Header1.extend`
-  color: ${({percentCorrect}) =>
-    percentCorrect >= 65 ? '#18ff7b' : '#ed122c'};
+  color: ${({percentCorrect}) => (percentCorrect >= 65 ? springGreen : salmon)};
 `;
 
 class Results extends Component {

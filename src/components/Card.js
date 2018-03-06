@@ -6,17 +6,18 @@ import Header3 from './Headers/Header3';
 import CardContent from './CardContent';
 import Container from './Container';
 import GenericButton from './GenericButton';
+import {springGreen, salmon} from '../utils/colors';
 
 const ContainerWithMargin = Container.extend`
   margin: 100px 0;
 `;
 
 const CorrectButton = GenericButton.extend`
-  background-color: #67d424;
+  background-color: ${springGreen};
 `;
 
 const IncorrectButton = GenericButton.extend`
-  background-color: #ec6418;
+  background-color: ${salmon};
 `;
 
 const Card = ({
