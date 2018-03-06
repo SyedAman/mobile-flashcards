@@ -7,14 +7,14 @@ import Container from './Container';
 import GenericButton from './GenericButton';
 import Header1 from './Headers/Header1';
 import Header3 from './Headers/Header3';
-import {turquoise, lightPink} from '../utils/colors';
+import {turquoise, lightPink, fadedBlack} from '../utils/colors';
 
 const AddFlashcardButton = GenericButton.extend`
   background-color: ${turquoise};
 `;
 
 const StartQuizButton = GenericButton.extend`
-  background-color: ${lightPink};
+  background-color: ${props => (props.disabled ? fadedBlack : lightPink)};
 `;
 
 class IndividualDeck extends Component {
@@ -39,7 +39,8 @@ class IndividualDeck extends Component {
         </AddFlashcardButton>
 
         <StartQuizButton
-          onPress={() => navigation.navigate('QuizPage', deck.id)}>
+          onPress={() => navigation.navigate('QuizPage', deck.id)}
+          disabled={amountOfCards === 0}>
           <Text>Start Quiz</Text>
         </StartQuizButton>
       </Container>
