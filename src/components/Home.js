@@ -28,10 +28,6 @@ const NewDeckButton = GenericButton.extend`
 `;
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const {navigation, decks} = this.props;
 
