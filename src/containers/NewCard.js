@@ -10,8 +10,8 @@ import Header1 from '../components/Headers/Header1';
 import TextInputField from '../components/TextInputField';
 
 class NewCard extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       cardQuestion: '',
