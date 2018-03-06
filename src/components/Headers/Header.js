@@ -5,6 +5,7 @@ import {Text} from 'react-native';
 const Header = styled.Text`
   font-size: 20px;
   margin: 5px;
+  text-align: center;
 `;
 
 export default Header;
