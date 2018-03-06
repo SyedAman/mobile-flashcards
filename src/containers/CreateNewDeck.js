@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
+import uuid from 'react-native-uuid';
 
 import {createDeck} from '../actions';
 import Container from '../components/Container';
@@ -23,8 +24,13 @@ class CreateNewDeck extends Component {
   };
 
   handleSubmit = () => {
-    this.props.onSubmit(this.state.newDeckName);
-    this.props.navigation.navigate('HomePage');
+    const newDeckData = {
+      name: this.state.newDeckName,
+      id: uuid.v1(),
+    };
+    this.props.onSubmit(newDeckData);
+
+    this.props.navigation.navigate('IndividualDeckPage', newDeckData.id);
   };
 
   render() {

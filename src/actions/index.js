@@ -2,9 +2,9 @@ import uuid from 'react-native-uuid';
 
 import * as actionTypes from './actionTypes';
 
-export const createDeck = name => ({
+export const createDeck = ({name, id}) => ({
   type: actionTypes.CREATE_DECK,
-  id: uuid.v1(),
+  id,
   name,
   cardsById: [],
 });
