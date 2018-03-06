@@ -47,7 +47,11 @@ class Home extends Component {
               title={deck.name}
               key={deck.id}>
               <CenteredText>{deck.name}</CenteredText>
-              <CenteredText>{`${deck.cardsById.length} cards`}</CenteredText>
+              <CenteredText>
+                {`${deck.cardsById.length} card${
+                  deck.cardsById.length === 1 ? '' : 's'
+                }`}
+              </CenteredText>
             </DeckButton>
           ))}
         </ScrollView>

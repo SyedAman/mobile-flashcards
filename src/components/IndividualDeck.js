@@ -25,11 +25,13 @@ class IndividualDeck extends Component {
   render() {
     const {navigation} = this.props;
     const deck = this.props.deck;
-
+    const amountOfCards = deck.cardsById.length;
     return (
       <Container>
         <Header1>{deck.name}</Header1>
-        <Header3>{`${deck.cardsById.length} cards`}</Header3>
+        <Header3>
+          {`${amountOfCards} card${amountOfCards === 1 ? '' : 's'}`}
+        </Header3>
 
         <AddFlashcardButton
           onPress={() => navigation.navigate('NewCardPage', deck.id)}>
